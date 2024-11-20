@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "node ./dist/index.js",
+    "start": "node ./dist/index.cjs",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
