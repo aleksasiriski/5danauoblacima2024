@@ -3,7 +3,7 @@ import { Database } from "../types/database";
 export function NewMatch(
   team1Id: string,
   team2Id: string,
-  winningTeamId: string,
+  winningTeamId: string | null,
   duration: number,
   db: Database
 ) {
