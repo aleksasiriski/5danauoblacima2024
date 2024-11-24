@@ -65,22 +65,10 @@ variable "identifiers" {
   default     = []
 }
 
-variable "dynamodb_policy" {
-  description = "Whether to attach a DynamoDB policy to the role"
-  type        = bool
-  default     = false
-}
-
 variable "dynamodb_policy_arn" {
   description = "ARN of the DynamoDB policy to attach to the role"
   type        = string
   default     = null
-}
-
-variable "s3_policy" {
-  description = "Whether to attach a S3 policy to the role"
-  type        = bool
-  default     = false
 }
 
 variable "s3_policy_arn" {

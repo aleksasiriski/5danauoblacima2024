@@ -13,7 +13,7 @@ resource "aws_cloudfront_distribution" "cdn" {
       custom_origin_config {
         http_port              = 80
         https_port             = 443
-        origin_protocol_policy = "https-only" // TODO: Match client?
+        origin_protocol_policy = "https-only"
         origin_ssl_protocols   = ["TLSv1.2"]
       }
     }
@@ -31,7 +31,7 @@ resource "aws_cloudfront_distribution" "cdn" {
   viewer_certificate {
     # acm_certificate_arn = var.acm_certificate_arn
     cloudfront_default_certificate = var.cloudfront_default_certificate
-    # ssl_support_method             = "sni-only"
+    # ssl_support_method = "sni-only"
   }
 
   restrictions {

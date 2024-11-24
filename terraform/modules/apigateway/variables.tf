@@ -55,4 +55,14 @@ variable "routes" {
     pattern = string
     method  = string
   }))
+
+  validation {
+    condition     = length(var.routes) > 0
+    error_message = "At least one route must be defined"
+  }
+
+  validation {
+    condition     = alltrue([for route in var.routes : contains(["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"], route.method)])
+    error_message = "All route methods must be from the list: GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS"
+  }
 }

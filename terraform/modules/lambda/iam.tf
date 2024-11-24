@@ -39,14 +39,14 @@ resource "aws_iam_role_policy_attachment" "policy_attachment_logging" {
 }
 
 resource "aws_iam_role_policy_attachment" "policy_attachment_dynamodb" {
-  count = var.dynamodb_policy ? 1 : 0
+  count = var.dynamodb_policy_arn != null ? 1 : 0
 
   role       = aws_iam_role.role.name
   policy_arn = var.dynamodb_policy_arn
 }
 
 resource "aws_iam_role_policy_attachment" "policy_attachment_s3" {
-  count = var.s3_policy ? 1 : 0
+  count = var.s3_policy_arn != null ? 1 : 0
 
   role       = aws_iam_role.role.name
   policy_arn = var.s3_policy_arn

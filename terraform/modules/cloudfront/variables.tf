@@ -85,14 +85,14 @@ variable "default_cache_behavior" {
   description = "The default cache behavior of the CloudFront distribution"
   type = object({
     allowed_methods        = optional(set(string), ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"])
-    cached_methods         = optional(set(string), ["GET", "HEAD"])
+    cached_methods         = optional(set(string), []) // Usually you want ["GET", "HEAD"], [] means no caching
     target_origin_id       = string
     viewer_protocol_policy = optional(string, "redirect-to-https")
 
     cache_policy = object({
-      min_ttl     = number
-      default_ttl = number
-      max_ttl     = number
+      min_ttl     = optional(number, 3600)  // 1 hour
+      default_ttl = optional(number, 3600)  // 1 hour
+      max_ttl     = optional(number, 86400) // 1 day
     })
   })
 }

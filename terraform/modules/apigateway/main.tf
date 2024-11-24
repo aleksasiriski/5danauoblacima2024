@@ -25,15 +25,3 @@ resource "aws_apigatewayv2_stage" "stage" {
   name        = var.stage_name
   auto_deploy = var.auto_deploy
 }
-
-# resource "aws_apigatewayv2_api_mapping" "api_mapping_latency" {
-#   api_id      = aws_apigatewayv2_api.gateway.id
-#   domain_name = aws_apigatewayv2_domain_name.domain_name_latency.id
-#   stage       = aws_apigatewayv2_stage.stage.id
-# }
-
-# resource "aws_apigatewayv2_api_mapping" "api_mapping_regional" {
-#   api_id      = aws_apigatewayv2_api.gateway.id
-#   domain_name = aws_apigatewayv2_domain_name.domain_name_regional.id
-#   stage       = aws_apigatewayv2_stage.stage.id
-# }
